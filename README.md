@@ -8,6 +8,7 @@ Code written in Matlab, version 2021b. The dictionary takes the probabilities ei
 from counting the occurences of letters from the input file cvxopt.txt or from the 
 frequencies.txt file which has the probabilities of each letter in the english language.
 
+All functions are run from the runfile.m 
 ## Author
 
 - [@Aris_Kyriakopoulos](https://github.com/SneakyTattas)
@@ -16,5 +17,7 @@ frequencies.txt file which has the probabilities of each letter in the english l
 
 - 0.1
   - Initial Commit
+  * Huffman dictionary and encoder functions
+  * Huffman decoder
 
 ## Known Issues
