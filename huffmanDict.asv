@@ -14,8 +14,8 @@ function dict = huffmanDict(symbols, probability)
          next = array(2);
         
          % get the letters corresponding to the above elements
-         rightLeaf = letter{last};
-         leftLeaf = letter{next};
+         rightLeaf = letter{last}
+         leftLeaf = letter{next}
         
          %get the number of their occurences
          rightProbability = probability(last);
@@ -38,8 +38,8 @@ function dict = huffmanDict(symbols, probability)
 
     %concatenate the encoded keyword for each leaf
     function encWord = concatEncoded(encWord,leaf,key)
-        for j = 1:length(leaf)
-            encWord{leaf(j)} = strcat(key,encWord{leaf(j)});      
+        for i = 1:length(leaf)
+            encWord{leaf(i)} = strcat(key,encWord{leaf(i)});      
         end
     end
 end

@@ -2,6 +2,8 @@
 
 simple project to learn how the huffman algorithm works and implement the 3 functions
 huffmanDict, huffmanEnc and huffmanDec.
+
+Details about the project can be found in the report.pdf which is written in greek
 ## Executing Program
 
 Code written in Matlab, version 2021b. The dictionary takes the probabilities either
@@ -19,5 +21,5 @@ All functions are run from the runfile.m
   - Initial Commit
   * Huffman dictionary and encoder functions
   * Huffman decoder
-
+  * Huffman Efficiency Calculator - Second Order Expansion of Channel
 ## Known Issues

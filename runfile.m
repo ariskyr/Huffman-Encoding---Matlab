@@ -27,9 +27,9 @@ probability3 = freqData{2};
 probability3 = transpose(probability3);
 
 %create dictionary of letters and keywords
-dict = huffmanDict(letter, probability1);
-encoded = [dict.symbol; dict.output];
-disp(encoded)
+dict = huffmanDict(letter, probability3);
+encodedDict = [dict.symbol; dict.output];
+disp(encodedDict)
 
 %encode the data
 encText = huffmanEnc(data, dict);
@@ -39,3 +39,26 @@ disp(encText)
 decText = huffmanDec(encText, dict);
 decoded = cell2mat(decText);
 disp(decoded)
+
+efficiency = benchmark(dict, probability3)
+
+
+% generate all possible combinations of letter
+[letterA letterB] = ndgrid(1:numel(letter), 1:numel(letter));
+letter4 = strcat(letter(letterA(:)),letter(letterB(:)));
+%generate probabilities for each of these pairs
+prob = combvec(probability1, probability1);
+for i = 1:length(prob)
+        probability4(i) = prob(1, i) * prob(2, i);
+end
+
+%deuteri taksi epektasi phghs
+dict4 = huffmanDict(letter4, probability4);
+encodedDict = [dict4.symbol; dict4.output];
+disp(encodedDict)
+
+%encode the data
+encText = huffmanEnc4(data, dict4);
+disp(encText)
+
+efficiency4 = benchmark(dict4, probability4)
