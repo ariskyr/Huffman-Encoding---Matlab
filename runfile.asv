@@ -72,19 +72,20 @@ imageArray = storedStructure.i;
 
 %reshape array to 1D and calculate probabilities of each value 0-255
 oneDArray = reshape(imageArray.',1,[]);
-value = 1:256;
-valueM = num2cell(value);
-occurenceNum = arrayfun(@(x)sum(oneDArray==x), value);
+oneDCell = num2cell(oneDArray);
+occurenceNum = arrayfun(@(x)sum(oneDArray==x), oneDArray);
 probability5 = occurenceNum ./ length(oneDArray);
 
+value = 1:256;
 %encode phgh B
-dict5 = huffmanDict(valueM, probability5);
+dict5 = huffmanDict(value, probability5);
 encodedDict = [dict5.symbol; dict5.output];
 disp(encodedDict)
 
 %encode the image
-encImage = huffmanEnc5(oneDArray, dict5);
+encImage = huffmanEnc(oneDArray, dict5);
 disp(encImage)
+
 
 %decode the image
 decImage = huffmanDec(encImage, dict5);

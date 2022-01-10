@@ -22,4 +22,5 @@ All functions are run from the runfile.m
   * Huffman dictionary and encoder functions
   * Huffman decoder
   * Huffman Efficiency Calculator - Second Order Expansion of Channel
+  * Encode an image from cameraman.mat
 ## Known Issues
