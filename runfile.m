@@ -67,8 +67,6 @@ efficiency4 = benchmark(dict4, probability4)
 %display image if needed
 storedStructure = load('cameraman.mat');
 imageArray = storedStructure.i;
-%figure(1);
-%imshow(imageArray, []);
 
 %reshape array to 1D and calculate probabilities of each value 0-255
 oneDArray = reshape(imageArray.',1,[]);
@@ -86,11 +84,17 @@ disp(encodedDict)
 encImage = huffmanEnc5(oneDArray, dict5);
 disp(encImage)
 
-%decode the image
-decImage = huffmanDec(encImage, dict5);
-decoded = cell2mat(decImage);
-disp(decoded)
+for i=1:length(encImage)
+    encImageVec(i) = str2num(encImage(i));
+end
 
-twoDArray = reshape(decoded.',256,[]);
-figure(1);
-imshow(twoDArray, []);
+noisyImg = bsc(encImageVec);
+noisyImg = num2str(noisyImg);
+noisyImg = strrep(noisyImg, ' ', '');
+
+% find hamming distance of 2 strings
+p = pdist2(encImage, noisyImg, 'hamming')
+%calculate binary entropy
+H = -p*log2(p) - (1-p)*log2(1-p)
+%Capacity of channel
+C = 1 - H

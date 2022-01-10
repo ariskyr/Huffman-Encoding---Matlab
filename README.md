@@ -23,4 +23,7 @@ All functions are run from the runfile.m
   * Huffman decoder
   * Huffman Efficiency Calculator - Second Order Expansion of Channel
   * Encode an image from cameraman.mat
+  * Find Channel Capacity of a Binary Symmetric Channel
 ## Known Issues
+
+Code is very messy, needs serious refactoring
